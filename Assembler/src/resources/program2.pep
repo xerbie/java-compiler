@@ -1,0 +1,5 @@
+LDWA 3, i
+ADDA 5, i
+STBA 0xFC16, d
+STOP
+.END
