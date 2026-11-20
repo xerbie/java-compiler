@@ -3,12 +3,13 @@
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.nio.file.Path;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException{
-        String program1 = "program1.pep";
-        String program2 = "program2.pep";
+        String program1 = "Assembler/src/program1.pep"; // thank you Kat
+        String program2 = "Assembler/src/program2.pep";
 
         File file1 = new File(program1);
         File file2 = new File(program2);
