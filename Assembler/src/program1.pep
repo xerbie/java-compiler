@@ -1,6 +1,0 @@
-LDBA 0x48, i
-STBA 0xFC16, d
-LDBA 0x69, i
-STBA 0xFC16, d
-STOP
-.END

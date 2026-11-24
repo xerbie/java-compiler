@@ -24,17 +24,29 @@ public class InputToAssembly {
         entry('z', "7A")
     );
 
-    public String inputToAssembly(String input) {
+    public String inputToAssembly(String input) { //Xerin
         StringBuilder assemblyResult = new StringBuilder();
-        char[] inputCharArray = input.toCharArray();
 
-        for (int i = 0; i < inputCharArray.length; i++) {
-            // Converts each letter from the input into its hex code
-            String hex = charsToHex.get(inputCharArray[i]);
+        if (input.contains("\"")) {
+            String[] splitInput = input.split("\"");
+            //separate the input to separate the print command from the print content //Aurelia
+            String printContent = splitInput[1].toString();
+            char[] inputCharArray = printContent.toCharArray();
 
-            assemblyResult.append("LDBA 0x" + hex + ", i\n");
-            assemblyResult.append("STBA 0xFC16, d\n");
+            for (int i = 0; i < inputCharArray.length; i++) {
+                // Converts each letter from the input into its hex code //Xerin
+                String hex = charsToHex.get(inputCharArray[i]);
+
+                assemblyResult.append("LDBA 0x" + hex + ", i\n");
+                assemblyResult.append("STBA 0xFC16, d\n");
+            }
+        } else if (input.contains("+")) {
+            //TODO: make this more solid for the math aspect
+        } else {
+            //TODO: this can change later / just get rid of it
+            System.out.println("Enter a valid input for this system.");
         }
+
 
         assemblyResult.append("STOP\n");
         assemblyResult.append(".END\n");
